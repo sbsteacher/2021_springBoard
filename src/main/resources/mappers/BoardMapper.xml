@@ -13,4 +13,10 @@
         FROM t_board
         ORDER BY iboard DESC
     </select>
+
+    <select id="selBoard" resultType="BoardEntity">
+        SELECT *
+        FROM t_board
+        WHERE iboard = ${iboard}
+    </select>
 </mapper>
