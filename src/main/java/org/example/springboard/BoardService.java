@@ -20,4 +20,8 @@ public class BoardService {
     public BoardEntity selBoard(BoardEntity entity) {
         return mapper.selBoard(entity);
     }
+
+    public int delBoard(BoardEntity entity) {
+        return mapper.delBoard(entity);
+    }
 }

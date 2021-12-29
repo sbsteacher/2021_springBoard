@@ -32,5 +32,11 @@ public class BoardController {
         int result = service.insBoard(entity);
         return "redirect:/board/list";
     }
+
+    @GetMapping("/del")
+    public String delProc(BoardEntity entity) {
+        int result = service.delBoard(entity);
+        return "redirect:/board/list";
+    }
 }
 
