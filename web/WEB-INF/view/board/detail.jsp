@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="btnContainer" data-iboard="${requestScope.data.iboard}">
-        <button>수정</button>
+        <a href="/board/mod?iboard=${requestScope.data.iboard}"><button>수정</button></a>
         <button id="btnDel">삭제</button>
     </div>
     <div>번호 : ${requestScope.data.iboard}</div>
