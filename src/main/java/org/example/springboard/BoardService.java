@@ -12,7 +12,12 @@ public class BoardService {
     private BoardMapper mapper;
 
     public int insBoard(BoardEntity entity) {
-        return mapper.insBoard(entity);
+        int result = 0;
+
+        try {
+            result = mapper.insBoard(entity);
+        } catch (Exception e) { e.printStackTrace(); }
+        return result;
     }
     public List<BoardEntity> selBoardList() {
         return mapper.selBoardList();
@@ -23,7 +28,10 @@ public class BoardService {
     }
 
     public int updBoard(BoardEntity entity) {
-        return mapper.updBoard(entity);
+        try {
+            return mapper.updBoard(entity);
+        } catch (Exception e) { e.printStackTrace(); }
+        return 0;
     }
 
     // 조회수 올리기
@@ -34,6 +42,8 @@ public class BoardService {
     }
 
     public int delBoard(BoardEntity entity) {
-        return mapper.delBoard(entity);
+        try { return mapper.delBoard(entity);}
+        catch (Exception e) { e.printStackTrace(); }
+        return 0;
     }
 }
