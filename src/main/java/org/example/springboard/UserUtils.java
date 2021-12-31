@@ -13,7 +13,7 @@ public class UserUtils {
     private HttpSession session;
 
     public int getLoginUserPk() {
-        return getLoginUser().getIuser();
+        return getLoginUser() == null ? 0 : getLoginUser().getIuser();
     }
 
     public UserEntity getLoginUser() {
