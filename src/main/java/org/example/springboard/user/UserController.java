@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -35,5 +38,15 @@ public class UserController {
                 break;                
         }
         return "redirect:/user/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession hs, HttpServletRequest req) {
+        hs.invalidate();
+        //전 페이지로 이동
+        String referer = req.getHeader("Referer");
+        System.out.println("referer : " + referer);
+        if(referer == null) { referer = "/user/login"; }
+        return "redirect:" + referer;
     }
 }

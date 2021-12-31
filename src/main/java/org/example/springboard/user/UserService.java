@@ -1,5 +1,6 @@
 package org.example.springboard.user;
 
+import org.example.springboard.Const;
 import org.example.springboard.user.model.UserEntity;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserService {
         if (BCrypt.checkpw(entity.getUpw(), loginUser.getUpw())) { //비밀번호 맞았음
             loginUser.setUpw(null);
             loginUser.setRdt(null);
-            hs.setAttribute("loginUser", loginUser);
+            hs.setAttribute(Const.LOGIN_USER, loginUser);
             return 1;
         }
         return 3; //비밀번호 다름

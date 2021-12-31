@@ -1,5 +1,6 @@
 package org.example.springboard.board;
 
+import org.example.springboard.UserUtils;
 import org.example.springboard.board.model.BoardEntity;
 import org.example.springboard.board.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,14 @@ public class BoardService {
     @Autowired
     private BoardMapper mapper;
 
+    @Autowired
+    private UserUtils userUtils;
+
     public int insBoard(BoardEntity entity) {
         int result = 0;
 
         try {
+            entity.setWriter(userUtils.getLoginUserPk());
             result = mapper.insBoard(entity);
         } catch (Exception e) { e.printStackTrace(); }
         return result;
