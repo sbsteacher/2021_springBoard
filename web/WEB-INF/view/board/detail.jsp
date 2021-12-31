@@ -16,7 +16,8 @@
     <div>번호 : ${requestScope.data.iboard}</div>
     <div>제목 : <c:out value="${requestScope.data.title}"/></div>
     <div>내용 : <c:out value="${requestScope.data.ctnt}"/></div>
-    <div>조회수 : ${requestScope.data.hits}</div>
+    <div>작성자 : <c:out value="${requestScope.data.writerNm}"/></div>
+    <div>조회수 : ${requestScope.data.hit}</div>
     <div>작성일시 : ${requestScope.data.rdt}</div>
     <div>수정일시 : ${requestScope.data.mdt}</div>
     <script src="/res/js/board/detail.js"></script>

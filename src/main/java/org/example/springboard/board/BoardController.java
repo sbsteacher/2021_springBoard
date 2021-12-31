@@ -1,6 +1,7 @@
-package org.example.springboard;
+package org.example.springboard.board;
 
 import com.sun.istack.internal.NotNull;
+import org.example.springboard.board.model.BoardEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -59,8 +59,8 @@ public class BoardController {
     }
 
     @GetMapping("/mod")
-    public void mod(Model model, BoardEntity entity, @NotNull HttpServletRequest res) throws Exception {
-        Map<String, ?> map = RequestContextUtils.getInputFlashMap(res); //addFlashAttribute 했는값 가져오는 방법
+    public void mod(Model model, BoardEntity entity, @NotNull HttpServletRequest res) {
+        Map<String, ?> map = RequestContextUtils.getInputFlashMap(res); //addFlashAttribute 했는 값 가져오는 방법
         BoardEntity data = map != null ? (BoardEntity) map.get("data") : service.selBoard(entity);
         model.addAttribute("data", data);
     }

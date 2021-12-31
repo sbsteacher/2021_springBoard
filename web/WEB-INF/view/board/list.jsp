@@ -21,6 +21,7 @@
                     <tr>
                         <th>번호</th>
                         <th>제목</th>
+                        <th>작성자</th>
                         <th>조회수</th>
                         <th>날짜</th>
                     </tr>
@@ -28,7 +29,8 @@
                         <tr class="record" data-iboard="${item.iboard}">
                             <td>${item.iboard}</td>
                             <td><c:out value="${item.title}"/></td>
-                            <td>${item.hits}</td>
+                            <td>${item.writerNm}</td>
+                            <td>${item.hit}</td>
                             <td>${item.rdt}</td>
                         </tr>
                     </c:forEach>

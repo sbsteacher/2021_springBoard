@@ -1,5 +1,7 @@
-package org.example.springboard;
+package org.example.springboard.board;
 
+import org.example.springboard.board.model.BoardEntity;
+import org.example.springboard.board.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +21,11 @@ public class BoardService {
         } catch (Exception e) { e.printStackTrace(); }
         return result;
     }
-    public List<BoardEntity> selBoardList() {
+    public List<BoardVo> selBoardList() {
         return mapper.selBoardList();
     }
 
-    public BoardEntity selBoard(BoardEntity entity) {
+    public BoardVo selBoard(BoardEntity entity) {
         return mapper.selBoard(entity);
     }
 
@@ -36,7 +38,7 @@ public class BoardService {
 
     // 조회수 올리기
     public void updBoardHitsUp(BoardEntity entity) {
-        entity.setHits(1);
+        entity.setHit(1);
         //mapper.updBoard(entity);
         updBoard(entity);
     }
