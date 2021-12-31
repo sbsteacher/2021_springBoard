@@ -10,7 +10,9 @@
 </head>
 <body>
     <h1>리스트</h1>
-    <div><a href="/board/write">글쓰기</a></div>
+    <c:if test="${sessionScope.loginUser != null}">
+        <div><a href="/board/write">글쓰기</a></div>
+    </c:if>
     <div>
         <c:choose>
             <c:when test="${fn:length(requestScope.list) == 0}">

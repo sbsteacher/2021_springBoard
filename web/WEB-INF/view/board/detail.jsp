@@ -8,10 +8,12 @@
     <title><c:out value="${requestScope.data.title}"/></title>
 </head>
 <body>
-    <div id="btnContainer" data-iboard="${requestScope.data.iboard}">
-        <a href="/board/mod?iboard=${requestScope.data.iboard}"><button>수정</button></a>
-        <button id="btnDel">삭제</button>
-    </div>
+    <c:if test="${sessionScope.loginUser.iuser == requestScope.data.writer}">
+        <div id="btnContainer" data-iboard="${requestScope.data.iboard}">
+            <a href="/board/mod?iboard=${requestScope.data.iboard}"><button>수정</button></a>
+            <button id="btnDel">삭제</button>
+        </div>
+    </c:if>
     <div>${requestScope.msg}</div>
     <div>번호 : ${requestScope.data.iboard}</div>
     <div>제목 : <c:out value="${requestScope.data.title}"/></div>
